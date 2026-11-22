@@ -1,0 +1,133 @@
+:root{--azul:#0b4d77;--verde:#13743e;--fondo:#ffffff;--borde:#e0e8e5;--texto:#1a2938;--gris:#627584;--suave:#edf6f0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--texto);background:var(--fondo);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}[hidden]{display:none!important}
+.cabecera{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--borde)}.cabecera-interior{width:min(1160px,calc(100% - 40px));margin:auto;min-height:79px;display:flex;align-items:center;gap:32px}.marca{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:21px;white-space:nowrap;line-height:1}.marca img{width:53px;height:53px;object-fit:contain}.marca-pro{color:var(--azul)}.marca-hogar{color:var(--verde)}.navegacion{display:flex;gap:9px;align-items:center;margin-left:auto}.navegacion a{font-size:14px;font-weight:650;color:#405a69;border-radius:9px;padding:9px 13px}.navegacion a:hover,.navegacion a.nav-activo{background:var(--suave);color:var(--verde)}
+.cuenta-menu{position:relative}.cuenta-boton{display:inline-flex;align-items:center;gap:8px;color:var(--azul);font-weight:700;font-size:14px;background:#fff;border:1px solid var(--borde);border-radius:10px;padding:9px 12px;white-space:nowrap}.cuenta-boton:hover,.cuenta-boton[aria-expanded="true"]{border-color:#9cc6af;background:#f6fbf7}.desplegar{font-size:20px;line-height:10px}.menu-desplegable{position:absolute;right:0;top:calc(100% + 9px);min-width:215px;background:#fff;border:1px solid var(--borde);box-shadow:0 14px 35px rgba(24,50,40,.13);border-radius:13px;padding:6px;z-index:30}.menu-desplegable button{display:block;width:100%;text-align:left;background:none;border:0;color:var(--texto);font-size:14px;padding:11px 12px;border-radius:8px}.menu-desplegable button:hover{background:var(--suave)}.menu-usuario{margin:6px 12px 8px;font-size:12px;font-weight:750;color:var(--verde);overflow-wrap:anywhere}.menu-separador{border-top:1px solid var(--borde);margin:5px 7px}.menu-desplegable .menu-salir{color:#a23636}
+.contenedor{width:min(1160px,calc(100% - 40px));margin:auto;min-height:calc(100vh - 190px)}.vista{padding:52px 0 65px}.vista-inicio{padding-top:39px}.ubicacion{font-size:12px;color:#698195;margin:0 0 13px}.vista h1{font-size:clamp(27px,3vw,37px);font-weight:700;line-height:1.2;letter-spacing:-.8px;color:var(--azul);margin:0 0 7px}.subtitulo,.encabezado-vista>p:last-child{font-size:15px;color:var(--gris);margin:0}.grid-tarjetas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:36px}.tarjeta-navegacion{border:1px solid var(--borde);border-radius:16px;padding:19px 17px 18px;min-height:237px;display:flex;flex-direction:column;background:#fff;box-shadow:0 3px 8px rgba(34,62,49,.018)}.tarjeta-titulo{display:flex;align-items:center;gap:11px}.tarjeta-titulo h2{color:var(--azul);font-size:20px;margin:0}.icono-tarjeta{width:39px;height:39px;display:grid;place-items:center;background:#eaf5ed;border-radius:11px;color:var(--verde);font-size:23px;font-weight:700}.tarjeta-navegacion p{color:var(--gris);font-size:14px;line-height:1.55;margin:14px 0 20px}.accion-tarjeta{display:flex;justify-content:space-between;align-items:center;background:var(--verde);color:#fff;font-size:13px;font-weight:700;padding:11px 12px;border-radius:8px;margin-top:auto}.accion-tarjeta:hover,.boton:hover{background:#0c5a30}.accion-tarjeta span{font-size:18px;line-height:1}
+.seccion-eyebrow{font-size:12px;font-weight:800;letter-spacing:1.5px;color:var(--verde);margin:0 0 9px}.encabezado-vista{margin-bottom:28px}.grid-categorias{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:12px}.categoria{padding:19px;background:#fff;border:1px solid var(--borde);border-radius:12px;font-weight:650;color:var(--azul)}.aviso-modulo{max-width:680px;border:1px solid #d7e6de;background:#f5faf7;border-radius:14px;padding:23px;color:#355047}.aviso-modulo p{margin:7px 0 0;color:var(--gris)}
+.grid-formularios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}.tarjeta-formulario{background:#fff;border:1px solid var(--borde);border-radius:15px;padding:25px;box-shadow:0 5px 20px rgba(15,45,29,.04)}.tarjeta-formulario h2{margin:0 0 14px;font-size:22px;color:var(--azul)}.tarjeta-formulario label{display:block;font-size:14px;font-weight:650;margin:13px 0;color:#354e5a}.tarjeta-formulario input,.tarjeta-formulario select,.tarjeta-formulario textarea{display:block;width:100%;margin-top:6px;padding:11px 12px;border:1px solid #bdcbc4;border-radius:8px;background:white;color:var(--texto)}.tarjeta-formulario :is(input,select,textarea):focus{outline:2px solid #b0dfbd;outline-offset:1px}.tarjeta-formulario small,.nota{font-size:12px;color:var(--gris)}.boton{background:var(--verde);border:1px solid var(--verde);color:#fff;padding:11px 17px;border-radius:8px;font-weight:750;font-size:14px}.boton:disabled{opacity:.65;cursor:wait}.boton.secundario{background:#fff;color:var(--verde)}.boton.secundario:hover{background:#f0f9f1}.panel-perfil{max-width:660px}.datos-perfil{margin:18px 0}.datos-perfil div{border-bottom:1px solid #edf0ee;padding:10px 0}.datos-perfil dt{color:var(--gris);font-size:13px}.datos-perfil dd{margin:3px 0 0;font-weight:650;overflow-wrap:anywhere}.botones-formulario{display:flex;flex-wrap:wrap;gap:10px}.estado{border-radius:10px;padding:12px 15px;margin:18px 0 3px;font-size:14px}.estado.error{background:#fff0f0;color:#9e2828;border:1px solid #efd1d1}.estado.exito{background:#eef8f0;color:#1d6538;border:1px solid #cce8d5}.pie{width:min(1160px,calc(100% - 40px));margin:0 auto;border-top:1px solid var(--borde);color:#8494a0;font-size:12px;padding:21px 0 32px}
+@media(max-width:1000px){.grid-tarjetas{grid-template-columns:repeat(2,minmax(0,1fr))}.cabecera-interior{gap:15px}.navegacion{gap:0}.navegacion a{padding:8px}}@media(max-width:670px){.cabecera-interior{flex-wrap:wrap;padding:8px 0 10px;gap:7px;justify-content:space-between}.marca{font-size:18px}.marca img{width:43px;height:43px}.navegacion{order:3;overflow-x:auto;width:100%;justify-content:space-between}.navegacion a{font-size:13px;padding:7px 8px}.vista{padding-top:27px}.grid-tarjetas,.grid-formularios{grid-template-columns:1fr}.tarjeta-navegacion{min-height:192px}.grid-tarjetas{gap:12px}.cuenta-boton{font-size:12px}.tarjeta-formulario{padding:18px}}
+
+/* Areas de trabajo para profesionales: casillas multiseleccion adaptables. */
+.grupo-areas{border:1px solid var(--borde);border-radius:12px;padding:13px 14px 14px;margin-top:16px}
+.grupo-areas legend{font-size:14px;font-weight:750;color:var(--azul);padding:0 5px}
+.obligatorio{color:var(--gris);font-size:12px;font-weight:450}
+.opciones-areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:5px}
+.tarjeta-formulario .opcion-area{display:flex;gap:10px;align-items:center;cursor:pointer;border:1px solid #dde8e0;border-radius:9px;padding:10px;margin:0;background:#f9fcfa;font-size:13px;font-weight:600}
+.tarjeta-formulario .opcion-area:has(input:checked){background:#e9f6ed;border-color:#78b994;color:#0b6335}
+.tarjeta-formulario .opcion-area input{display:inline-block;width:17px;height:17px;margin:0;accent-color:var(--verde);flex:none}
+@media(max-width:470px){.opciones-areas{grid-template-columns:1fr}}
+
+/* Catálogo de profesionales y formulario de solicitudes */
+.titulo-subseccion{font-size:18px;color:var(--azul);margin:30px 0 14px}
+.grid-categorias .categoria{font:inherit;text-align:left;cursor:pointer;transition:border-color .15s,background .15s;min-height:80px}
+.grid-categorias .categoria:hover,.grid-categorias .categoria:focus-visible{border-color:#74b896;background:#f4fbf6;outline-offset:2px}
+.grid-categorias .categoria.categoria-activa{background:#e5f5ea;color:#0b6335;border-color:#3c9a67}
+.bloque-profesionales{margin-top:34px}.fila-encabezado-servicios h2{color:var(--azul);font-size:21px;margin:0}.fila-encabezado-servicios p{color:var(--gris);margin:4px 0 18px;font-size:14px}
+.grid-profesionales{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px}
+.tarjeta-profesional{border:1px solid var(--borde);border-radius:14px;padding:20px;background:white;display:flex;flex-direction:column;align-items:flex-start;min-height:213px}
+.tarjeta-profesional h3{font-size:18px;margin:0;color:var(--azul)}
+.profesional-especialidad{display:inline-block;color:var(--verde);font-size:13px;font-weight:750;margin:6px 0}
+.profesional-descripcion{font-size:14px;color:var(--gris);line-height:1.55;margin:10px 0 18px;white-space:pre-wrap;overflow-wrap:anywhere}
+.tarjeta-profesional .boton{margin-top:auto}
+.bloque-solicitud{max-width:730px;margin:31px 0;scroll-margin-top:105px}
+.descripcion-seleccion{color:var(--verde);font-weight:700}
+.resultado-solicitud{padding:12px;border-radius:9px;font-size:14px}
+.resultado-solicitud.exito{background:#eef8f0;color:#1d6538}.resultado-solicitud.error{background:#fff0f0;color:#9e2828}
+
+/* Adjuntos e historial de solicitudes */
+.tarjeta-formulario input[type="file"]{padding:10px;border-style:dashed;background:#f7fbf8}
+.grid-registros{display:grid;gap:15px;max-width:900px}
+.tarjeta-registro{background:white;border:1px solid var(--borde);border-radius:14px;padding:20px;box-shadow:0 4px 12px rgba(15,45,29,.035)}
+.tarjeta-registro h2{font-size:18px;color:var(--azul);margin:0 0 8px}
+.registro-meta{font-size:13px;color:var(--gris);margin:0 0 12px}
+.registro-descripcion{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;margin:0 0 12px}
+.registro-estado{display:inline-block;background:#eaf5ed;border-radius:8px;color:var(--verde);font-weight:700;font-size:12px;padding:4px 9px}
+.registro-fotos{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.registro-fotos img{width:120px;height:98px;object-fit:cover;border:1px solid var(--borde);border-radius:10px;background:#f3f3f3}
+@media(max-width:470px){.registro-fotos img{width:100px;height:85px}}
+
+/* Acciones de aceptación, rechazo y finalización de solicitudes */
+.registro-acciones{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.registro-acciones .boton{width:auto}
+
+/* Filtro de solicitudes y colores según estado (actualización). */
+.barra-filtro-solicitudes{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:-4px 0 20px}
+.barra-filtro-solicitudes label{color:var(--azul);font-size:14px;font-weight:700}
+.barra-filtro-solicitudes select{border:1px solid #bdcbc4;background:#fff;color:var(--texto);border-radius:9px;padding:10px 12px;min-width:210px;max-width:100%}
+.barra-filtro-solicitudes select:focus-visible{outline:2px solid #7bbb99;outline-offset:2px}
+.resumen-filtro{color:var(--gris);font-size:13px}
+.registro-estado.estado-pendiente{background:#fff3d7;color:#8b5b06}
+.registro-estado.estado-aceptada{background:#eaf5ed;color:var(--verde)}
+.registro-estado.estado-rechazada{background:#b42318;color:#fff}
+.registro-estado.estado-finalizada{background:#175cd3;color:#fff}
+@media(max-width:470px){.barra-filtro-solicitudes{align-items:stretch;flex-direction:column;gap:7px}.barra-filtro-solicitudes select{width:100%}}
+
+
+/* Módulo de materiales: catálogo y publicaciones propias */
+.acciones-materiales{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:21px}
+.acciones-materiales .boton[aria-pressed="true"]{background:#e8f5ec;color:#0b6335;border-color:#7cbe98}
+.formulario-material{max-width:720px;margin:0 0 24px;scroll-margin-top:115px}
+.dos-campos-material{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.filtros-materiales{display:flex;flex-wrap:wrap;gap:16px;margin:18px 0}
+.filtros-materiales label{display:flex;flex-direction:column;gap:6px;color:var(--azul);font-size:13px;font-weight:700;min-width:190px;flex:1}
+.filtros-materiales input,.filtros-materiales select{border:1px solid #bdcbc4;border-radius:9px;padding:10px 12px;width:100%;max-width:400px;color:var(--texto);background:#fff}
+.grid-materiales{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:16px;margin:14px 0}
+.tarjeta-material{border:1px solid var(--borde);border-radius:14px;background:white;padding:20px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 4px 12px rgba(15,45,29,.035)}
+.tarjeta-material h2{margin:9px 0 12px;font-size:18px;color:var(--azul);overflow-wrap:anywhere}
+.material-categoria{display:inline-block;font-size:12px;color:#0b6335;background:#e7f5eb;border-radius:7px;padding:4px 9px;font-weight:750}
+.material-cantidad{font-size:14px;color:var(--texto);margin:0 0 6px}
+.material-precio{font-size:20px;font-weight:800;color:var(--verde);margin:0 0 9px}
+.material-autor{font-size:12px;color:var(--gris);margin:0 0 12px;overflow-wrap:anywhere}
+.material-estado{font-size:12px;padding:4px 9px;border-radius:8px;font-weight:750}
+.material-disponible{background:#eaf5ed;color:#13743e}
+.material-agotado{background:#fce8e6;color:#b42318}
+.material-acciones{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.material-acciones .boton{font-size:12px;padding:8px 11px}
+@media(max-width:670px){.dos-campos-material{grid-template-columns:1fr}.acciones-materiales .boton{flex:1}.filtros-materiales{flex-direction:column;gap:10px}}
+
+
+/* Fotos de materiales, tanto en catálogo como en edición. */
+.galeria-material{display:flex;flex-wrap:wrap;gap:8px;width:100%;margin:12px 0 10px}
+.galeria-material a{display:block;flex:1 1 95px;max-width:150px}
+.galeria-material img{width:100%;height:115px;object-fit:cover;border-radius:9px;border:1px solid var(--borde);background:#edf3ee;display:block}
+.galeria-material a:focus-visible{outline:3px solid #208855;outline-offset:2px;border-radius:9px}
+.fotos-material-edicion{margin:12px 0;padding:12px;background:#f7faf8;border:1px solid var(--borde);border-radius:10px}
+.foto-edicion-material{width:145px;display:flex;flex-direction:column;gap:6px}
+.foto-edicion-material img{height:110px}
+.foto-edicion-material .boton{font-size:12px;padding:7px 8px}
+@media(max-width:470px){.galeria-material img{height:95px}.foto-edicion-material{width:125px}}
+
+/* Ajustes de cantidad y precio para publicaciones de materiales. */
+.formulario-material .campo-numero-material{margin:13px 0}
+.formulario-material .campo-numero-material>label{display:block;margin:0 0 6px;color:#354e5a;font-size:14px;font-weight:650}
+.formulario-material .control-numero-material{display:flex;align-items:stretch;width:100%;max-width:470px}
+.formulario-material .control-numero-material input[type=number]{flex:1;min-width:0;width:100%;margin:0;border-radius:0;text-align:center;appearance:textfield;-moz-appearance:textfield}
+.formulario-material .control-numero-material input[type=number]::-webkit-inner-spin-button,
+.formulario-material .control-numero-material input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.formulario-material .control-numero-material .paso-material{flex:0 0 44px;padding:8px 10px;border:1px solid #bdcbc4;background:#f4f9f5;color:var(--azul);font-weight:750;font-size:21px;line-height:1;border-radius:8px 0 0 8px}
+.formulario-material .control-numero-material .paso-material:last-child{border-radius:0 8px 8px 0}
+.formulario-material .control-numero-material .paso-material:hover{background:#e4f4e9}
+.formulario-material .control-numero-material .paso-material:focus-visible{outline:2px solid var(--verde);outline-offset:2px}
+
+/* Solicitudes de compra en el módulo Materiales. */
+.panel-compras-materiales{margin-top:22px;max-width:1000px}
+.panel-compras-materiales>h2{font-size:21px;color:var(--azul);margin:22px 0 9px}
+.lista-compras-materiales{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:13px;margin:14px 0 25px}
+.tarjeta-compra-material{padding:17px;border:1px solid var(--borde);border-radius:12px;background:#fff;overflow-wrap:anywhere}
+.tarjeta-compra-material h3{margin:0 0 8px;color:var(--azul);font-size:18px}
+.estado-compra{display:inline-block;font-size:12px;font-weight:750;border-radius:7px;padding:4px 9px}
+.estado-compra-pendiente{background:#fff3d7;color:#8b5b06}
+.estado-compra-aceptada{background:#eaf5ed;color:#13743e}
+.estado-compra-rechazada{background:#fce8e6;color:#b42318}
+.estado-compra-cancelada{background:#f0f2f5;color:#44546a}
+.contacto-compra{font-size:13px;margin:13px 0;color:var(--texto);overflow-wrap:anywhere}
+.contacto-compra a{color:var(--azul);text-decoration:underline;font-weight:650}
+
+
+/* Recuperación de contraseña */
+.formulario-recuperacion{max-width:500px;margin:0 auto 36px}
+.enlace-recuperacion{display:block;border:0;background:transparent;color:var(--azul);font-weight:700;font-size:13px;padding:12px 0 0;text-decoration:underline;text-underline-offset:3px}
+.enlace-recuperacion:hover{color:var(--verde)}
+.formulario-recuperacion .boton.secundario{margin-left:8px}
+.formulario-recuperacion [role="status"]{overflow-wrap:anywhere;white-space:pre-wrap;margin-top:14px}
+@media(max-width:470px){.formulario-recuperacion .boton.secundario{display:block;margin:10px 0 0}}

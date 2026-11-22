@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProHogar — El profesional que tu hogar necesita</title>
+  <link rel="icon" href="/logo-prohogar-icono.png" type="image/png">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="cabecera">
+    <div class="cabecera-interior">
+      <a href="#inicio" class="marca" data-vista="inicio" aria-label="ProHogar, ir al inicio">
+        <img src="/logo-prohogar-icono.png" alt="" width="54" height="54">
+        <span><span class="marca-pro">Pro</span><span class="marca-hogar">Hogar</span></span>
+      </a>
+      <nav class="navegacion" aria-label="Navegación principal">
+        <a href="#inicio" data-vista="inicio" class="nav-activo">Inicio</a>
+        <a href="#servicios" data-vista="servicios">Servicios</a>
+        <a href="#materiales" data-vista="materiales">Materiales</a>
+        <a href="#registros" data-vista="registros">Mis solicitudes</a>
+      </nav>
+      <div class="cuenta-menu" id="cuenta-menu">
+        <button type="button" id="btn-cuenta" class="cuenta-boton" aria-expanded="false" aria-controls="menu-cuenta">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c.3-4 2.6-6.2 6.5-6.2s6.2 2.2 6.5 6.2"/><circle cx="12" cy="12" r="10"/></svg>
+          <span>Mi cuenta</span><span class="desplegar" aria-hidden="true">⌄</span>
+        </button>
+        <div id="menu-cuenta" class="menu-desplegable" hidden>
+          <div id="menu-invitado">
+            <button type="button" data-accion="ingresar">Iniciar sesión</button>
+            <button type="button" data-accion="registrarse">Registrarse</button>
+          </div>
+          <div id="menu-autenticado" hidden>
+            <p class="menu-usuario" id="nombre-menu"></p>
+            <button type="button" data-accion="ver-perfil">Ver mi perfil</button>
+            <button type="button" data-accion="editar-perfil">Editar mi perfil</button>
+            <div class="menu-separador"></div>
+            <button type="button" data-accion="salir" class="menu-salir">Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <p id="estado" role="status" aria-live="polite" class="estado" hidden></p>
+
+    <section id="inicio" class="vista vista-inicio" data-vista-pagina="inicio">
+      <p class="ubicacion">⌾ Región de Los Ríos, Chile</p>
+      <h1>¡Bienvenido a ProHogar!</h1>
+      <p class="subtitulo">El profesional que tu hogar necesita. Encuentra servicios y administra tus actividades en un solo lugar.</p>
+      <div class="grid-tarjetas">
+        <article class="tarjeta-navegacion">
+          <div class="tarjeta-titulo"><span class="icono-tarjeta" aria-hidden="true">⚒</span><h2>Servicios</h2></div>
+          <p>Busca profesionales y solicita el servicio que necesitas.</p>
+          <a href="#servicios" data-vista="servicios" class="accion-tarjeta">Ver servicios <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="tarjeta-navegacion">
+          <div class="tarjeta-titulo"><span class="icono-tarjeta" aria-hidden="true">▣</span><h2>Materiales</h2></div>
+          <p>Consulta y publica materiales reutilizables.</p>
+          <a href="#materiales" data-vista="materiales" class="accion-tarjeta">Ver materiales <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="tarjeta-navegacion">
+          <div class="tarjeta-titulo"><span class="icono-tarjeta" aria-hidden="true">♙</span><h2>Perfil</h2></div>
+          <p>Administra tu información y tus datos de contacto.</p>
+          <a href="#cuenta" id="enlace-perfil-inicio" class="accion-tarjeta">Ver mi perfil <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="tarjeta-navegacion">
+          <div class="tarjeta-titulo"><span class="icono-tarjeta" aria-hidden="true">▤</span><h2>Mis solicitudes</h2></div>
+          <p>Revisa tus solicitudes y el historial de trabajos.</p>
+          <a href="#registros" data-vista="registros" class="accion-tarjeta">Ver mis solicitudes <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="servicios" class="vista" data-vista-pagina="servicios" hidden>
+      <div class="encabezado-vista"><p class="seccion-eyebrow">SERVICIOS</p><h1>Servicios para tu hogar</h1><p>Explora las categorías disponibles en ProHogar.</p></div>
+      <h2 class="titulo-subseccion">1. Elige una categoría</h2>
+      <div id="categorias" class="grid-categorias" aria-live="polite">Cargando categorías…</div>
+      <div id="panel-profesionales" class="bloque-profesionales" hidden>
+        <div class="fila-encabezado-servicios"><h2 id="titulo-profesionales">2. Profesionales disponibles</h2><p>Selecciona a quién quieres enviar tu solicitud.</p></div>
+        <div id="lista-profesionales" class="grid-profesionales" aria-live="polite"></div>
+      </div>
+      <div id="panel-solicitud" class="bloque-solicitud" hidden>
+        <form id="form-solicitud" class="tarjeta-formulario">
+          <h2>Solicitar servicio</h2>
+          <p class="descripcion-seleccion" id="detalle-seleccion"></p>
+          <input type="hidden" name="id_servicio_profesional" id="id-servicio-seleccionado">
+          <label>Dirección donde se realizará el trabajo
+            <input type="text" name="direccion" autocomplete="street-address" minlength="5" maxlength="255" required
+              placeholder="Ej.: Av. Alemania 123, Valdivia">
+          </label>
+          <label>Describe el trabajo que necesitas
+            <textarea name="descripcion" rows="5" minlength="15" maxlength="1000" required
+              placeholder="Ejemplo: necesito reparar una filtración en la cocina…"></textarea>
+          </label>
+          <label>Fotografías del trabajo (opcional)
+            <input type="file" id="fotos-solicitud" name="fotos" accept="image/jpeg,image/png,image/webp" multiple>
+          </label>
+          <p class="nota" id="ayuda-fotos">Puedes adjuntar hasta 3 fotos JPG, PNG o WebP (máximo 3 MB por foto).</p>
+          <div class="botones-formulario">
+            <button class="boton" type="submit">Enviar solicitud</button>
+            <button class="boton secundario" type="button" id="btn-cancelar-solicitud">Cancelar</button>
+          </div>
+          <p class="nota">Tu solicitud se guardará para que el profesional pueda revisarla.</p>
+          <p class="resultado-solicitud" id="resultado-solicitud" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="materiales" class="vista" data-vista-pagina="materiales" hidden>
+      <div class="encabezado-vista">
+        <p class="seccion-eyebrow">MATERIALES</p>
+        <h1>Materiales de aprovechamiento</h1>
+        <p>Encuentra y publica sobrantes de madera, pintura, zinc y cable para aprovecharlos en nuevos trabajos.</p>
+      </div>
+      <div class="acciones-materiales">
+        <button type="button" id="btn-listar-materiales" class="boton secundario" aria-pressed="true">Materiales disponibles</button>
+        <button type="button" id="btn-mis-materiales" class="boton secundario" aria-pressed="false">Mis publicaciones</button>
+        <button type="button" id="btn-compras-materiales" class="boton secundario" aria-pressed="false">Mis compras y ventas</button>
+        <button type="button" id="btn-publicar-material" class="boton">+ Publicar material</button>
+      </div>
+      <form id="form-material" class="tarjeta-formulario formulario-material" hidden>
+        <h2 id="titulo-form-material">Publicar material</h2>
+        <p class="nota">Puedes publicar materiales sobrantes, no tornillos o clavos individuales.</p>
+        <label>Tipo de material
+          <select name="id_categoria_material" id="categoria-material-form" required>
+            <option value="">Selecciona una categoría</option>
+          </select>
+        </label>
+        <label>Descripción breve del material
+          <input name="nombre" type="text" minlength="4" maxlength="150" required
+            placeholder="Ej.: Pintura látex blanca sin usar">
+        </label>
+        <div class="dos-campos-material">
+          <div class="campo-numero-material">
+            <label for="cantidad-material">Cantidad</label>
+            <div class="control-numero-material">
+              <button type="button" class="paso-material" data-campo-numero="cantidad" data-direccion="-1" aria-label="Disminuir cantidad en 1">−</button>
+              <input id="cantidad-material" name="cantidad" type="number" min="0.01" max="9999999999.99" step="any" required placeholder="Ej.: 5 o 5.5" inputmode="decimal">
+              <button type="button" class="paso-material" data-campo-numero="cantidad" data-direccion="1" aria-label="Aumentar cantidad en 1">+</button>
+            </div>
+          </div>
+          <label>Unidad
+            <select name="unidad" required>
+              <option value="">Selecciona unidad</option>
+              <option value="litros">Litros</option>
+              <option value="metros">Metros</option>
+              <option value="m²">m²</option>
+              <option value="kg">Kilogramos</option>
+              <option value="planchas">Planchas</option>
+              <option value="tablas">Tablas</option>
+              <option value="rollos">Rollos</option>
+              <option value="latas">Latas</option>
+            </select>
+          </label>
+        </div>
+        <div class="campo-numero-material">
+          <label for="precio-material">Precio, 0 si es gratis</label>
+          <div class="control-numero-material">
+            <button type="button" class="paso-material" data-campo-numero="precio" data-direccion="-1" aria-label="Disminuir precio en 1000 pesos">−</button>
+            <input id="precio-material" name="precio" type="number" min="0" max="9999999999" step="1" value="0" required inputmode="numeric">
+            <button type="button" class="paso-material" data-campo-numero="precio" data-direccion="1" aria-label="Aumentar precio en 1000 pesos">+</button>
+          </div>
+        </div>
+        <label>Fotografías del material (opcional)
+          <input id="fotos-material" name="fotos" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+        </label>
+        <p class="nota">Puedes adjuntar hasta 3 fotografías JPG, PNG o WebP (3 MB máximo cada una).</p>
+        <div id="fotos-material-existentes" class="fotos-material-edicion" hidden></div>
+        <div class="botones-formulario">
+          <button type="submit" id="btn-guardar-material" class="boton">Publicar</button>
+          <button type="button" id="btn-cancelar-material" class="boton secundario">Cancelar</button>
+        </div>
+      </form>
+      <div id="mensaje-material" class="estado" role="status" aria-live="polite" hidden></div>
+      <div class="filtros-materiales">
+        <label>Filtrar por tipo
+          <select id="filtro-categoria-material">
+            <option value="todas">Todos los materiales</option>
+          </select>
+        </label>
+        <label>Buscar material
+          <input type="search" id="buscar-material" placeholder="Ej.: madera, pintura…" maxlength="80">
+        </label>
+      </div>
+      <p id="cantidad-materiales" class="resumen-filtro" aria-live="polite"></p>
+      <div id="lista-materiales" class="grid-materiales" aria-live="polite">Cargando materiales…</div>
+      <section id="panel-compras-materiales" class="panel-compras-materiales" hidden aria-label="Solicitudes de compra de materiales">
+        <h2>Mis compras</h2>
+        <p class="nota">Las solicitudes de compra deben ser aceptadas por el vendedor. No se realizan pagos en ProHogar.</p>
+        <div id="lista-mis-compras" class="lista-compras-materiales" aria-live="polite"></div>
+        <h2>Solicitudes que recibí</h2>
+        <div id="lista-ventas-recibidas" class="lista-compras-materiales" aria-live="polite"></div>
+      </section>
+    </section>
+
+    <section id="registros" class="vista" data-vista-pagina="registros" hidden>
+      <div class="encabezado-vista"><p class="seccion-eyebrow">MIS SOLICITUDES</p><h1>Mis solicitudes</h1><p>Aquí podrás revisar el estado de los trabajos solicitados o aceptados.</p></div>
+      <div id="controles-filtro-solicitudes" class="barra-filtro-solicitudes" hidden>
+        <label for="filtro-estado-solicitudes">Filtrar por estado</label>
+        <select id="filtro-estado-solicitudes" aria-label="Filtrar solicitudes por estado">
+          <option value="todas">Todas las solicitudes</option>
+          <option value="pendiente">Pendientes</option>
+          <option value="aceptada">Aceptadas</option>
+          <option value="rechazada">Rechazadas</option>
+          <option value="finalizada">Finalizadas</option>
+        </select>
+        <span id="resumen-filtro-solicitudes" class="resumen-filtro" aria-live="polite"></span>
+      </div>
+      <div id="lista-registros" class="grid-registros" aria-live="polite">Inicia sesión para ver tus solicitudes.</div>
+    </section>
+
+    <section id="cuenta" class="vista" data-vista-pagina="cuenta" hidden>
+      <div class="encabezado-vista"><p class="seccion-eyebrow">MI CUENTA</p><h1 id="cuenta-titulo">Accede a ProHogar</h1><p id="cuenta-subtitulo">Ingresa con tus datos o crea una cuenta nueva.</p></div>
+      <div id="invitado" class="grid-formularios">
+        <form id="form-ingreso" class="tarjeta-formulario" autocomplete="off">
+          <h2>Iniciar sesión</h2>
+          <label>Correo electrónico<input name="correo" type="email" autocomplete="off" required maxlength="150"></label>
+          <label>Contraseña<input name="password" type="password" autocomplete="off" required></label>
+          <button class="boton" type="submit">Ingresar</button>
+          <button id="btn-olvido-password" type="button" class="enlace-recuperacion">¿Olvidaste tu contraseña?</button>
+        </form>
+        <form id="form-registro" class="tarjeta-formulario" autocomplete="off">
+          <h2>Crear una cuenta</h2>
+          <label>Nombre<input name="nombre" type="text" autocomplete="off" minlength="2" maxlength="100" required></label>
+          <label>Correo electrónico<input name="correo" type="email" autocomplete="off" maxlength="150" required></label>
+          <label>Contraseña<input name="password" type="password" autocomplete="off" minlength="10" maxlength="72" required><small>Entre 10 y 72 caracteres.</small></label>
+          <label>Tipo de usuario<select name="tipo_usuario" id="rol" required><option value="cliente">Cliente</option><option value="profesional">Profesional</option></select></label>
+          <div id="datos-profesional" hidden>
+            <label>Teléfono (opcional)<input name="telefono" type="tel" maxlength="20"></label>
+            <label>Descripción profesional (opcional)<textarea name="descripcion" rows="3" maxlength="1500"></textarea></label>
+            <fieldset class="grupo-areas">
+              <legend>Áreas de trabajo <span class="obligatorio">(elige una o más)</span></legend>
+              <div id="areas-registro" class="opciones-areas">Cargando categorías…</div>
+            </fieldset>
+          </div>
+          <button class="boton" type="submit">Registrarme</button>
+        </form>
+      </div>
+      <form id="form-recuperacion" class="tarjeta-formulario formulario-recuperacion" hidden>
+        <h2>Recuperar contraseña</h2>
+        <p class="nota">Te enviaremos un enlace a tu correo si tienes una cuenta en ProHogar.</p>
+        <label>Correo electrónico
+          <input name="correo" type="email" autocomplete="email" maxlength="150" required>
+        </label>
+        <button type="submit" class="boton">Enviar enlace</button>
+        <button type="button" class="boton secundario btn-volver-ingreso">Volver a iniciar sesión</button>
+        <p id="estado-recuperacion" class="nota" role="status" aria-live="polite"></p>
+      </form>
+      <form id="form-restablecer" class="tarjeta-formulario formulario-recuperacion" hidden>
+        <h2>Crear nueva contraseña</h2>
+        <p class="nota">El enlace caduca en 30 minutos y solo puede utilizarse una vez.</p>
+        <label>Nueva contraseña
+          <input name="password" type="password" autocomplete="new-password" minlength="10" maxlength="72" required>
+        </label>
+        <label>Repetir contraseña
+          <input name="confirmar" type="password" autocomplete="new-password" minlength="10" maxlength="72" required>
+        </label>
+        <button type="submit" class="boton">Guardar contraseña</button>
+        <button type="button" class="boton secundario btn-volver-ingreso">Volver a iniciar sesión</button>
+        <p id="estado-restablecer" class="nota" role="status" aria-live="polite"></p>
+      </form>
+      <div id="panel-usuario" class="panel-perfil" hidden>
+        <div id="perfil-lectura" class="tarjeta-formulario">
+          <h2>Mi perfil</h2>
+          <dl class="datos-perfil"><div><dt>Nombre</dt><dd id="perfil-nombre"></dd></div><div><dt>Correo</dt><dd id="perfil-correo"></dd></div><div><dt>Tipo de usuario</dt><dd id="perfil-rol"></dd></div><div id="perfil-telefono-fila" hidden><dt>Teléfono</dt><dd id="perfil-telefono"></dd></div><div id="perfil-descripcion-fila" hidden><dt>Descripción profesional</dt><dd id="perfil-descripcion"></dd></div><div id="perfil-areas-fila" hidden><dt>Áreas de trabajo</dt><dd id="perfil-areas"></dd></div></dl>
+          <button class="boton secundario" id="btn-editar-desde-perfil" type="button">Editar mi perfil</button>
+        </div>
+        <form id="form-editar-perfil" class="tarjeta-formulario" hidden>
+          <h2>Editar mi perfil</h2>
+          <label>Nombre<input name="nombre" type="text" minlength="2" maxlength="100" required></label>
+          <label>Correo electrónico<input name="correo" type="email" maxlength="150" required></label>
+          <div id="editar-profesional" hidden>
+            <label>Teléfono<input name="telefono" type="tel" maxlength="20"></label>
+            <label>Descripción profesional<textarea name="descripcion" rows="4" maxlength="1500"></textarea></label>
+            <fieldset class="grupo-areas">
+              <legend>Mis áreas de trabajo <span class="obligatorio">(elige una o más)</span></legend>
+              <div id="areas-edicion" class="opciones-areas">Cargando categorías…</div>
+            </fieldset>
+          </div>
+          <div class="botones-formulario"><button class="boton" type="submit">Guardar cambios</button><button class="boton secundario" id="btn-cancelar-edicion" type="button">Cancelar</button></div>
+          <p class="nota">La contraseña no se modifica desde este formulario.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie"><div>ProHogar · Región de Los Ríos, Chile</div></footer>
+</body>
+</html>
